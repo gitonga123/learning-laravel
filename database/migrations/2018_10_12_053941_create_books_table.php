@@ -20,8 +20,6 @@ class CreateBooksTable extends Migration
             $table->integer('page_count');
             $table->decimal('price', 5, 2);
             $table->text('description');
-            $table->integer('author_id')->unsigned();
-            $table->integer('publisher_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
