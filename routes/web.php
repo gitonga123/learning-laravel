@@ -17,6 +17,15 @@ Route::get('/', function () {
 
 Route::get("book/{id}", function ($id) {
     $result = \App\Book::wherePageCount(5)->first()->toJson();
+    $result_count = \App\Book::count();
+    echo $result_count . "\n";
 
-    return $result;
+    $resultMinPageCount = \App\Book::where('page_count', '>', 5)->min('page_count');
+    $resultMaxPageCount = \App\Book::where('page_count', '>', 5)->max('page_count');
+    $resultAvgPageCount = \App\Book::where('page_count', '>', 5)->avg('page_count');
+    echo $result . "\n";
+    echo $resultMaxPageCount . "\n";
+    echo $resultMinPageCount . "\n";
+    /** @var TYPE_NAME $resultPageCount */
+    return $resultAvgPageCount;
 });
