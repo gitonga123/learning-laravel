@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("book/{id}", function ($id) {
+    $result = \App\Book::wherePageCount(5)->first()->toJson();
+
+    return $result;
+});
