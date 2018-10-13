@@ -22,9 +22,28 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+$faker->define(App\Author::class, function (Faker\Generator $faker) {
+    return [
+        "first_name" => $faker->firstName,
+        "last_name" => $faker->lastName,
+    ];
+});
+
+$faker->define(App\Publisher::class, function (Faker\Generator $faker) {
+    return [
+        "first_name" => $faker->firstName,
+        "last_name" => $faker->lastName,
+    ];
+});
 
 $factory->define(App\Book::class, function (Faker\Generator $faker) {
     return [
-        ""
+        "title" => $faker->text(10),
+        "isbn" => $faker->streetAddress,
+        "page_count" => $faker->randomDigitNotNull,
+        "price" => $faker->randomDigitNotNull,
+        "description" => $faker->text,
+        "publisher_id" => random_int(0,9),
+        "author_id" => random_int(0,9)
     ];
 });
