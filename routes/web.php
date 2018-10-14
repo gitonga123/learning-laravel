@@ -61,6 +61,6 @@ Route::get('author-name/{id}', function ($id) {
     return $author->complete_name;
 });
 
-Route::get('books/{book}', function (App\Book $book) {
-    return $book->title;
-});
+//Route::get('books/{book}', function (App\Book $book) {
+//    return $book->title;
+//});
