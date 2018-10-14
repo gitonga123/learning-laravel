@@ -9,6 +9,9 @@ class Book extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    protected $casts = [
+        'is_rare' => 'boolean'
+    ];
 
     //a local scope
 
