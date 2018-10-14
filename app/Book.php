@@ -34,4 +34,9 @@ class Book extends Model
     {
         return $query->where('page_count', '<', 100);
     }
+
+    public function getPriceAttribute($value)
+    {
+        return 'Ksh. ' . $value;
+    }
 }

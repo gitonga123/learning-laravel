@@ -38,4 +38,12 @@ Route::get('cheap_books', function () {
 Route::get('book-list', function () {
 //    return \App\Book::all()->toJson();
     $cheapLong = \App\Book::cheap()->long()->get();
+
+    return $cheapLong;
+});
+
+Route::get('book-price/{id}', function ($id) {
+    $book = \App\Book::findorFail($id);
+
+    return $book->price;
 });
