@@ -55,3 +55,8 @@ Route::get('book-update/{id}', function ($id) {
 
     return $book->title;
 });
+
+Route::get('author-name/{id}', function ($id) {
+    $author = \App\Author::findorFail($id);
+    return $author->complete_name;
+});
