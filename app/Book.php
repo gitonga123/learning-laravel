@@ -39,4 +39,9 @@ class Book extends Model
     {
         return 'Ksh. ' . $value;
     }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = strtoupper($value);
+    }
 }

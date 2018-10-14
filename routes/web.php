@@ -47,3 +47,11 @@ Route::get('book-price/{id}', function ($id) {
 
     return $book->price;
 });
+
+Route::get('book-update/{id}', function ($id) {
+    $book = \App\Book::findorFail($id);
+    $book->title = "River And The Source";
+    $book->save();
+
+    return $book->title;
+});
