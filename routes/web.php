@@ -43,9 +43,9 @@ Route::get('book-list', function () {
 });
 
 Route::get('book-price/{id}', function ($id) {
-    $book = \App\Book::findorFail($id);
+    $book = \App\Book::findorFail($id)->toJson();
 
-    return $book->price;
+    return $book;
 });
 
 Route::get('book-update/{id}', function ($id) {

@@ -13,6 +13,8 @@ class Book extends Model
         'is_rare' => 'boolean'
     ];
 
+    protected $hidden = ['id','author_id', 'publisher_id','created_at', 'updated_at', 'deleted_at'];
+    protected $visible = ['title', 'description', 'price'];
     //a local scope
 
     public function scopeCheap($query)
