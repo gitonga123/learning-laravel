@@ -29,3 +29,13 @@ Route::get("book/{id}", function ($id) {
     /** @var TYPE_NAME $resultPageCount */
     return $resultAvgPageCount;
 });
+
+Route::get('cheap_books', function () {
+    $cheapBooks = \App\Book::cheapBigBooks()->get();
+    return $cheapBooks;
+});
+
+Route::get('book-list', function () {
+//    return \App\Book::all()->toJson();
+    $cheapLong = \App\Book::cheap()->long()->get();
+});

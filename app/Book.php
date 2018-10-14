@@ -11,4 +11,24 @@ class Book extends Model
     protected $dates = ['deleted_at'];
 
     //a local scope
+
+    public function scopeCheap($query)
+    {
+        return $query->where('price', '<', 10);
+    }
+
+    public function scopeExpensive($query)
+    {
+        return $query->where('priee', '>', 50);
+    }
+
+    public function scopeLong($query)
+    {
+        return $query->where('pages_count', '>', 700);
+    }
+
+    public function scopeShort($query)
+    {
+        return $query->where('page_count', '<', 100);
+    }
 }
