@@ -64,3 +64,15 @@ Route::get('author-name/{id}', function ($id) {
 //Route::get('books/{book}', function (App\Book $book) {
 //    return $book->title;
 //});
+
+Route::get('authors-book', function () {
+    $author = \App\Author::where('first_name', '=', 'Max')
+        ->where('last_name', '=', 'Raynor');
+
+    foreach ($author->books as $book)
+    {
+        echo $book->complete_name . "<br />";
+    }
+
+    return;
+});
