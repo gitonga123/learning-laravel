@@ -46,4 +46,9 @@ class Book extends Model
     {
         $this->attributes['title'] = strtoupper($value);
     }
+
+    public function author()
+    {
+        return $this->belongsTo('App/Author');
+    }
 }
