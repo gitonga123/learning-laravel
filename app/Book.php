@@ -51,4 +51,9 @@ class Book extends Model
     {
         return $this->belongsTo('App/Author');
     }
+
+    public function category()
+    {
+        return $this->belongsToMany('App\Category');
+    }
 }
