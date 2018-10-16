@@ -15,8 +15,5 @@ class Author extends Model
         return $this->attributes['first_name'] . ' '. $this->attributes['last_name'];
     }
 
-    public function books()
-    {
-        return $this->hasMany('App\Book');
-    }
+
 }

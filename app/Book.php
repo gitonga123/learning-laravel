@@ -24,7 +24,7 @@ class Book extends Model
 
     public function scopeExpensive($query)
     {
-        return $query->where('priee', '>', 50);
+        return $query->where('price', '>', 50);
     }
 
     public function scopeLong($query)
@@ -47,9 +47,9 @@ class Book extends Model
         $this->attributes['title'] = strtoupper($value);
     }
 
-    public function author()
+    public function authors()
     {
-        return $this->belongsTo('App/Author');
+        return $this->hasMany('App/Author');
     }
 
     public function categories()
