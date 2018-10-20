@@ -66,13 +66,29 @@ Route::get('author-name/{id}', function ($id) {
 //});
 
 Route::get('authors-book', function () {
-    $author = \App\Author::where('first_name', '=', 'Max')
-        ->where('last_name', '=', 'Raynor');
-
+    $author = \App\Author::where('first_name', '=', 'Morgan')
+        ->where('last_name', '=', 'Hills')->first();
     foreach ($author->books as $book)
     {
         echo $book->complete_name . "<br />";
     }
 
     return;
+});
+
+Route::get('user-docs/{id}', function ($id) {
+    $user = App\User::findorFail($id);
+    echo "<pre>";
+    var_dump($user->identityDocument);
+    echo "</pre>";
+    return;
+});
+
+Route::get('book-categories', function () {
+    $book = App\Book::find(3);
+    foreach ($book->categories as $category) {
+        echo "Association Date: ";
+        $category->pivot->created_at;
+        echo "Association Notes: " . $category->pivot->notes;
+    }
 });

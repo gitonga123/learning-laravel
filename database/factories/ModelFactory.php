@@ -48,3 +48,13 @@ $factory->define(App\Book::class, function (Faker\Generator $faker) {
         "author_id" => 2
     ];
 });
+
+$factory->define(App\IdentityDocument::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => random_int($min = 2, $max = 10),
+        'type' => $faker->colorName,
+        'due_date' => $faker->dateTime,
+        'city' => $faker->city,
+    ];
+});
+

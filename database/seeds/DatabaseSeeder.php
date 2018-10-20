@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 //        factory(App\Author::class, 50)->create();
 //        factory(App\Publisher::class, 50)->create();
         //factory(App\Book::class, 50)->create();
-        factory(App\User::class, 50)->create();
+        //factory(App\User::class, 50)->create();
+        factory(App\IdentityDocument::class, 5)->create();
     }
 }

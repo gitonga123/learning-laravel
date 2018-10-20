@@ -29,6 +29,6 @@ class User extends Authenticatable
 
     public function identityDocument()
     {
-        return $this->hasOne('App\IdentityDocument');
+        return $this->hasOne('App\IdentityDocument', 'user_id');
     }
 }
