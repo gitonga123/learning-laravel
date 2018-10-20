@@ -67,7 +67,7 @@ Route::get('author-name/{id}', function ($id) {
 
 Route::get('authors-book', function () {
     $author = \App\Author::where('first_name', '=', 'Morgan')
-        ->where('last_name', '=', 'Hills')->first();
+        ->where('last_name', '=', 'Hills')->get();
     foreach ($author->books as $book)
     {
         echo $book->complete_name . "<br />";
@@ -91,4 +91,9 @@ Route::get('book-categories', function () {
         $category->pivot->created_at;
         echo "Association Notes: " . $category->pivot->notes;
     }
+});
+
+Route::get('book-author', function() {
+    $authors = \App\Author::has('books', '>=', 5)->get();
+    dd($authors);
 });
