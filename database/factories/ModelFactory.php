@@ -39,13 +39,13 @@ $factory->define(App\Publisher::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Book::class, function (Faker\Generator $faker) {
     return [
-        "title" => $faker->unique()->text(10),
-        "isbn" => $faker->streetAddress,
-        "page_count" => $faker->randomDigitNotNull,
-        "price" => $faker->randomDigitNotNull,
+        "title" => $faker->text(200),
+        "isbn" => $faker->isbn13,
+        "page_count" => $faker->numberBetween(60,150),
+        "price" => $faker->numberBetween(300, 150),
         "description" => $faker->text,
-        "publisher_id" => 2,
-        "author_id" => 2
+        "publisher_id" => $faker->randomElement(App\Publisher::all()->pluck('id')->toArray()),
+        "author_id" => $faker->randomElement(App\Author::all()->pluck('id')->toArray()),
     ];
 });
 

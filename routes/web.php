@@ -66,13 +66,11 @@ Route::get('author-name/{id}', function ($id) {
 //});
 
 Route::get('authors-book', function () {
-    $author = \App\Author::where('first_name', '=', 'Morgan')
-        ->where('last_name', '=', 'Hills')->get();
-    foreach ($author->books as $book)
-    {
-        echo $book->complete_name . "<br />";
-    }
 
+    $books = \App\Book::where('page_count', '>', '50')
+        ->where('price', '>', '100.00');
+    echo $books->count();
+    print_r($books->authors);
     return;
 });
 
