@@ -72,3 +72,20 @@ Route::get('authors-book', function () {
     print_r($books->authors);
     return;
 });
+
+Route::get('forms', function () {
+    return view('send_message');
+});
+
+Route::post('forms', function (Request $request) {
+    echo "Name is" . $request->input('name');
+    echo 'All input is' . var_dump($request->all());
+    echo "User provided email address" . $request->has('email') ? 'true' : 'false';
+    echo "Fuzzy Matches" . $request->is();
+    echo "URL Matches" . $request->url();
+    echo "IP Matches" . $request->ip();
+    echo "Header Matches" . var_dump($request->header());
+    echo "IP Matches" . var_dump($request->server());
+    echo "Secure Matches" . var_dump($request->secure());
+    return;
+});
