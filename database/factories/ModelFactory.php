@@ -62,21 +62,21 @@ $factory->define(App\IdentityDocument::class, function (Faker\Generator $faker) 
 $factory->define(App\Item::class, function (Faker\Generator $faker) {
     return [
         'item_name' => $faker->word,
-        'price' => $faker->random_int($min = 200, $max = 1000)
+        'price' => random_int($min = 200, $max = 1000)
     ];
 });
 
 $factory->define(App\Invoice::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->random_int($min = 1, $max = 50),
-        'order_id' => $faker->random_int($min = 1, $max = 50),
-        'price' => $faker->random_int($min = 200, $max = 1000)
+        'user_id' => random_int($min = 1, $max = 50),
+        'order_id' => random_int($min = 1, $max = 50),
+        'paid_amount' => random_int($min = 200, $max = 1000)
     ];
 });
 
 $factory->define(App\Order::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->random_int($min = 1, $max = 50),
-        'item_id' => $faker->random_int($min = 1, $max = 50)
+        'user_id' => random_int($min = 1, $max = 50),
+        'item_id' => random_int($min = 1, $max = 50)
     ];
 });
