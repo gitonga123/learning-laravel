@@ -74,9 +74,10 @@ $factory->define(App\Invoice::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Order::class, function (Faker\Generator $faker) {
+
+$factory->define(App\Account::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => random_int($min = 1, $max = 50),
-        'item_id' => random_int($min = 1, $max = 50)
+        'user_id' => $faker->unique()->numberBetween($min = 1, $max = 50),
+        'account_number' => rand(100000000,999999999)
     ];
 });
