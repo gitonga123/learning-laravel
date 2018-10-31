@@ -112,3 +112,7 @@ Route::get('book-author', function () {
     $authors = \App\Author::has('books', '>=', 5)->get();
     dd($authors);
 });
+
+Route::get('product/create', 'ProductController@create')->name('product.create');
+
+Route::get('product/{product}', 'ProductController@show')->name('product.show');
