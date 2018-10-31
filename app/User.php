@@ -29,6 +29,18 @@ class User extends Authenticatable
 
     public function identityDocument()
     {
-        return $this->hasOne('App\IdentityDocument');
+        return $this->hasOne('App\IdentityDocument', 'user_id');
     }
+
+    public function orders()
+    {
+        // modelm, foreign key , primary key
+        return $this->hasMany(Order::class);
+    }
+
+    public function account()
+    {
+        return $this->hasOne(Account::class);
+    }
+
 }

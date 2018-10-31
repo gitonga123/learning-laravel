@@ -66,12 +66,14 @@ Route::get('author-name/{id}', function ($id) {
 //});
 
 Route::get('authors-book', function () {
+
     $books = \App\Book::where('page_count', '>', '50')
         ->where('price', '>', '100.00');
     echo $books->count();
     print_r($books->authors);
     return;
 });
+
 
 Route::get('forms', function () {
     return view('send_message');
@@ -88,4 +90,25 @@ Route::post('forms', function (Request $request) {
     echo "IP Matches" . var_dump($request->server());
     echo "Secure Matches" . var_dump($request->secure());
     return;
+});
+Route::get('user-docs/{id}', function ($id) {
+    $user = App\User::findorFail($id);
+    echo "<pre>";
+    var_dump($user->identityDocument);
+    echo "</pre>";
+    return;
+});
+
+Route::get('book-categories', function () {
+    $book = App\Book::find(3);
+    foreach ($book->categories as $category) {
+        echo "Association Date: ";
+        $category->pivot->created_at;
+        echo "Association Notes: " . $category->pivot->notes;
+    }
+});
+
+Route::get('book-author', function() {
+    $authors = \App\Author::has('books', '>=', 5)->get();
+    dd($authors);
 });
