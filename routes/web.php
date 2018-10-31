@@ -108,7 +108,7 @@ Route::get('book-categories', function () {
     }
 });
 
-Route::get('book-author', function() {
+Route::get('book-author', function () {
     $authors = \App\Author::has('books', '>=', 5)->get();
     dd($authors);
 });
