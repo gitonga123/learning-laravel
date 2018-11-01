@@ -67,7 +67,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <h2>Product Name: </h2>
-          
+
             <p>
                 {{ $product->name }} || Kshs {{ money_format($product->price, 2) }}
             </p>

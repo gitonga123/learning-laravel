@@ -26,4 +26,12 @@ class ProductController extends Controller
         // dd($product->categories());
         return view('product.show', compact('product'));
     }
+
+    public function removeProduct(Product $product)
+    {
+        $product = Product::find(10);
+        $product->shops()->detach();
+
+        return "Success";
+    }
 }
