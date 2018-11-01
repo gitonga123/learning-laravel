@@ -10,4 +10,9 @@ class Team extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function goals()
+    {
+        return $this->hasManyThrough(Goal::class, User::class);
+    }
 }

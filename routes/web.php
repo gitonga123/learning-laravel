@@ -121,3 +121,4 @@ Route::get('category/product/{product}', 'ProductController@removeProduct')->nam
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/team/{team}', 'TeamController@show')->name('team.show');
