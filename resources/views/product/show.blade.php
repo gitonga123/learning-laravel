@@ -67,7 +67,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <h2>Product Name: </h2>
-
+          
             <p>
                 {{ $product->name }} || Kshs {{ money_format($product->price, 2) }}
             </p>
@@ -75,8 +75,8 @@
             <h3>Product Belogs to</h3>
 
             <ul>
-                @foreach($product->categories as $category)
-                    <li>{{ $category->title }}</li>
+                @foreach($product->shops as $shop)
+                    <li>{{ $shop->name }}</li>
                 @endforeach
         </div>
     </body>

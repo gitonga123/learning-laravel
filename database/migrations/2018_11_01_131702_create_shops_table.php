@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateTableNameForCategoryProduct extends Migration
+class CreateShopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +12,11 @@ class UpdateTableNameForCategoryProduct extends Migration
      */
     public function up()
     {
-        $from = 'category_product';
-        $to =  'product_product_category';
-        Schema::rename($from, $to);
+        Schema::create('shops', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,7 +26,6 @@ class UpdateTableNameForCategoryProduct extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_product');
-        Schema::dropIfExists('product_product_category');
+        Schema::dropIfExists('shops');
     }
 }

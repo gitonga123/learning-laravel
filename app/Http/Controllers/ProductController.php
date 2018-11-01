@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\Shop;
 use App\Product;
 
 class ProductController extends Controller
@@ -11,12 +11,12 @@ class ProductController extends Controller
     public function create(Request $request)
     {
         $product = new Product();
-        $product->name = 'God of War';
+        $product->name = 'Fifa 19';
         $product->price = 5000;
         $product->save();
 
-        $category = Category::find([3, 4]);
-        $product->categories()->attach($category);
+        $shop = Shop::find([1, 4]);
+        $product->shops()->attach($shop);
 
         return "Success";
     }
