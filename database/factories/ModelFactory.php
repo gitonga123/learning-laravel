@@ -21,6 +21,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         'identity_document' => random_int($min = 2, $max = 5),
+        'team_id' => random_int($min = 2, $max = 5),
     ];
 });
 $factory->define(App\Author::class, function (Faker\Generator $faker) {
