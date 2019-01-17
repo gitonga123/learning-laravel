@@ -17,3 +17,6 @@ Route::resource('signatures', 'Api\SignatureController')
     ->only(['index', 'store', 'show']);
 
 Route::put('signatures/{signatures}/report', 'Api\ReportSignature@update');
+
+Route::get('sign', 'SignaturesController@create')->name('sign');
+

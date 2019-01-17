@@ -14,7 +14,7 @@ class SignaturesController extends Controller
      */
     public function index()
     {
-        //
+        return view('signatures.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class SignaturesController extends Controller
      */
     public function create()
     {
-        //
+        return view('signatures.sign');
     }
 
     /**
