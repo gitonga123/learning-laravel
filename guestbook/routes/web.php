@@ -11,9 +11,7 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SignaturesController@index')->name('home');
 
 Route::resource('signatures', 'Api\SignatureController')
     ->only(['index', 'store', 'show']);
