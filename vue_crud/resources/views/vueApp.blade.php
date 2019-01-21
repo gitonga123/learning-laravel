@@ -11,18 +11,35 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-      <div class="container">
-        <h3>CRUD APPLICATION</h3>
+      <div id="root">
+        <ul>
+          <li v-for="name in names" v-text="name">
+            @{{ name }}
+          </li>
+          <input type="text" name="" id="names_id" v-model="newName">
+          <button @click='addName'>Add New Name</button>
+        </ul>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#root",
+        data: {
+          newName: '',
+          names: ['joe', 'mary', 'jack', 'steve']
+        },
 
-      <section id="app"></section>
+        methods: {
+          addName() {
+            this.names.push(this.newName);
 
-      <script>
-        window.Laravel = <?php echo json_encode([
-          'csrfToken' => csrf_token(),
-        ]);?>
-      </script>
-      
-      <script src="{{ asset('js/app.js') }}"></script>
-    </body>
+            this.newName = '';
+          }
+        },
+        mounted() {
+        }
+      });
+
+    </script>
+  </body>
 </html>
