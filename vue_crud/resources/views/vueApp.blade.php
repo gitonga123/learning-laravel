@@ -15,12 +15,15 @@
           };
           .is-loading {
             color: blue;
+          };
+          body {
+            padding-top: 40px;
           }
         </style>
     </head>
     <body>
-      <div id="root">
-        <task-list></task-list>
+      <div class="container" id="root">
+        <lara-message></lara-message>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
       <script src="{{ asset('js/main.js') }}"></script>
