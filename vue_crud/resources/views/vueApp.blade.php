@@ -9,32 +9,36 @@
         <link href="{{ asset('css/app.css')}}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <style>
+          .color-red{
+            color:red;
+          };
+          .is-loading {
+            color: blue;
+          }
+        </style>
     </head>
     <body>
       <div id="root">
-        <ol>
-        <li v-for="name in names" v-text="name"></li>
-        </ol>
-
-        <input type="text" id="input" v-model="newName"><button v-on:click='addName'>Add New Name</button>
+      <button v-bind:title="title">Add New Name</button>
+      <h1 :class="className">Hello World</h1>
+      <button :class="{'is-loading': isLoading}" v-on:click="toggleClass">Click Me</button>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
     <script>
       var app = new Vue({
         el: '#root',
         data: {
-          newName: '',
-          names: ['James', 'Nickson', 'Jackson']
+          title: 'Now the title is being set through JavaScript',
+          className: 'color-red',
+          isLoading: false
+
         },
+
         methods: {
-          addName() {
-            this.names.push(this.newName);
-
-            this.newName = '';
+          toggleClass() {
+            this.isLoading = true;
           }
-        },
-
-        mounted() {
         },
       });
 
