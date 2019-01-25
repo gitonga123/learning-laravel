@@ -21,7 +21,7 @@ Vue.component('task', {
 });
 
 Vue.component('lara-message', {
-  props: ['title', 'body', ]
+  props: ['title', 'body'],
   template: `
         <div class = "row">
           <div class = "col-lg-12 col-sm-12 col-md-12">
