@@ -20,47 +20,11 @@
     </head>
     <body>
       <div id="root">
-        <h1>
-          @{{ reversedMessage() }}
-        </h1>
-        <ol>
-          <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
-        </ol>
-
-        <h1>Incompleted Tasks</h1>
-        <ol>
-          <li v-for="task in incompleteTasks" v-text="task.description"></li>
-        </ol>
+        <task>GO to the store</task>
+        <task>GO to Work</task>
+        <task>GO to the Book</task>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
-    <script>
-      var app = new Vue({
-        el: '#root',
-        data: {
-          message: 'Hello World',
-          tasks: [
-            { description: 'Go to the store', completed: false},
-            { description: 'Finish Screencast', completed: true},
-            { description: 'Make Donation', completed: false},
-            { description: 'Clear Inbox', completed: false},
-            { description: 'Make dinner', completed: false},
-            { description: 'Clean room', completed: true},
-            { description: 'Clear Roomie', completed: false},
-            { description: 'Owner List display', completed: false},
-          ]
-        },
-
-        methods: {
-          reversedMessage() {
-            return "Completed Tasks";
-          },
-        },
-        computed: {
-          incompleteTasks() {
-            return this.tasks.filter(task => !task.completed);
-          }
-        },
-      });
-    </script>
+      <script src="{{ asset('js/main.js') }}"></script>
   </body>
 </html>
