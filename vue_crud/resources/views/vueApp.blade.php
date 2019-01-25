@@ -20,29 +20,47 @@
     </head>
     <body>
       <div id="root">
-      <button v-bind:title="title">Add New Name</button>
-      <h1 :class="className">Hello World</h1>
-      <button :class="{'is-loading': isLoading}" v-on:click="toggleClass">Click Me</button>
+        <h1>
+          @{{ reversedMessage() }}
+        </h1>
+        <ol>
+          <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li>
+        </ol>
+
+        <h1>Incompleted Tasks</h1>
+        <ol>
+          <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ol>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
     <script>
       var app = new Vue({
         el: '#root',
         data: {
-          title: 'Now the title is being set through JavaScript',
-          className: 'color-red',
-          isLoading: false
-
+          message: 'Hello World',
+          tasks: [
+            { description: 'Go to the store', completed: false},
+            { description: 'Finish Screencast', completed: true},
+            { description: 'Make Donation', completed: false},
+            { description: 'Clear Inbox', completed: false},
+            { description: 'Make dinner', completed: false},
+            { description: 'Clean room', completed: true},
+            { description: 'Clear Roomie', completed: false},
+            { description: 'Owner List display', completed: false},
+          ]
         },
 
         methods: {
-          toggleClass() {
-            this.isLoading = true;
+          reversedMessage() {
+            return "Completed Tasks";
+          },
+        },
+        computed: {
+          incompleteTasks() {
+            return this.tasks.filter(task => !task.completed);
           }
         },
       });
-
-      
     </script>
   </body>
 </html>
