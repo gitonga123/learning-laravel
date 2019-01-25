@@ -20,9 +20,7 @@
     </head>
     <body>
       <div id="root">
-        <task>GO to the store</task>
-        <task>GO to Work</task>
-        <task>GO to the Book</task>
+        <task-list></task-list>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
       <script src="{{ asset('js/main.js') }}"></script>
