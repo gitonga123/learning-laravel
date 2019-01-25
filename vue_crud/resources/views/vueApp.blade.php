@@ -12,34 +12,17 @@
     </head>
     <body>
       <div id="root">
-        <ul>
-          <li v-for="name in names" v-text="name">
-            @{{ name }}
-          </li>
-          <input type="text" name="" id="names_id" v-model="newName">
-          <button @click='addName'>Add New Name</button>
-        </ul>
+        <input type="text" id="input" v-model="message">
+      <p>@{{ message}}</p>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
     <script>
-      var app = new Vue({
-        el: "#root",
+      new Vue({
+        el: '#root',
         data: {
-          newName: '',
-          names: ['joe', 'mary', 'jack', 'steve']
-        },
-
-        methods: {
-          addName() {
-            this.names.push(this.newName);
-
-            this.newName = '';
-          }
-        },
-        mounted() {
+          message: 'Hello World'
         }
       });
-
     </script>
   </body>
 </html>
