@@ -23,11 +23,17 @@
     </head>
     <body>
       <div class="container" id="root">
-        <ul id="tabs">
-          <li><a href="#">About</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">About Our Culture</a></li>
-        </ul>
+        <tabs>
+          <tab name="About Us" :selected="true">
+            <h1>Here us the content for the about us</h1>
+          </tab>
+          <tab name="About Our Culture">
+            <h1>Here us the content for the about our culture</h1>
+          </tab>
+          <tab name="About Our Vision">
+            <h1>Here us the content for the about our version tab</h1>
+          </tab>
+        </tabs>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
       <script src="{{ asset('js/main.js') }}"></script>
