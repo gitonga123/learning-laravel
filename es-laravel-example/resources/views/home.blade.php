@@ -1,23 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Articles <small>({{ $articles->count() }})</small>
+            </div>
+            <div class="card-body">
+                <form action="{{ url('search') }}" method="get">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="q"
+                            class="form-control"
+                            placeholder="Search..."
+                            value="{{ request('q') }}"
+                        />
+                    </div>
+                </form>
+                @forelse ($articles as $article)
+                    <article class="mb-3">
+                        <h2>{{ $article->title }}</h2>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                        <p class="m-0">{{ $article->body }}</body>
+
+                        <div>
+                            @foreach ($article->tags as $tag)
+                                <span class="badge badge-light">{{ $tag}}</span>
+                            @endforeach
                         </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+                    </article>
+                @empty
+                    <p>No articles found</p>
+                @endforelse
             </div>
         </div>
     </div>
-</div>
-@endsection
+@stop
